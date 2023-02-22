@@ -11,9 +11,9 @@ resource "google_container_cluster" "gke-app" {
   networking_mode          = "VPC_NATIVE"
 
   # Optional, if you want multi-zonal cluster
-  node_locations = [
-    "asia-southeast1-b"
-  ]
+  # node_locations = [
+  #   "asia-southeast1-b"
+  # ]
 
   addons_config {
     http_load_balancing {
