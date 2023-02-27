@@ -6,8 +6,8 @@ resource "google_container_cluster" "gke-app" {
   initial_node_count       = 1
   network                  = google_compute_network.main.self_link
   subnetwork               = google_compute_subnetwork.private.self_link
-  logging_service          = "logging.googleapis.com/kubernetes"
-  monitoring_service       = "monitoring.googleapis.com/kubernetes"
+  logging_service          = "none"
+  monitoring_service       = "none"
   networking_mode          = "VPC_NATIVE"
 
   # Optional, if you want multi-zonal cluster
@@ -43,6 +43,13 @@ resource "google_container_cluster" "gke-app" {
     master_ipv4_cidr_block  = "172.16.0.0/28"
   }
 
+  # monitoring_config {
+  #   enable_components = []
+  # }
+
+  # logging_config {
+  #   enable_components = []
+  # }
   #   Jenkins use case
   #   master_authorized_networks_config {
   #     cidr_blocks {
