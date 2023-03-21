@@ -16,11 +16,21 @@ resource "google_container_node_pool" "general" {
 
   node_config {
     preemptible  = false
-    machine_type = "e2-standard-2"
-    disk_size_gb = 50
+    machine_type = "n1-standard-2"
+    disk_size_gb = 80
+    disk_type    = "pd-standard"
+
+    # Specify the Docker image repository and tag for your nodes
+    image_type = "COS_CONTAINERD"
+
+    # Specify any additional runtime options you want to pass to Docker
+    # For example, you can enable Docker experimental features by setting this parameter
+    # to "--experimental"
+
 
     labels = {
       role = "general"
+      node-architecture = "arm64"
     }
 
     service_account = google_service_account.kubernetes.email
