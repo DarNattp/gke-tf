@@ -1,7 +1,7 @@
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster
-resource "google_container_cluster" "gke-app" {
-  name                     = "gke-app"
-  location                 = "asia-southeast1-a"
+resource "google_container_cluster" "todo-gke" {
+  name                     = "todo-gke"
+  location                 = "asia-southeast1-b"
   remove_default_node_pool = true
   initial_node_count       = 1
   network                  = google_compute_network.main.self_link
@@ -29,7 +29,7 @@ resource "google_container_cluster" "gke-app" {
   }
 
   workload_identity_config {
-    workload_pool = "gke-app-376315.svc.id.goog"
+    workload_pool = "todo-gke.svc.id.goog"
   }
 
   ip_allocation_policy {

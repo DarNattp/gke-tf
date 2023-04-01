@@ -1,0 +1,22 @@
+# Ignore Python compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore Jupyter Notebook files
+.ipynb_checkpoints/
+
+# Ignore virtual environment files
+venv/
+.venv/
+
+# Ignore log files
+*.log
+
+# Ignore the credentials file (for GCP or other services)
+*.json
+
+
+.terraform
+.terraform.*
